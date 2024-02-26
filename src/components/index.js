@@ -28,30 +28,28 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 
 const ToDo = () => {
     const [isOpenModal, setIsOpenModal] = useState(false);
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState([
+        {
+            id: '1',
+            title: 'Task 1',
+            status: taskStatusType.COMPLETED
+        },
+        {
+            id: '2',
+            title: 'Task 2',
+            status: taskStatusType.CREATED
+        },
+        {
+            id: '3',
+            title: 'Task 3',
+            status: taskStatusType.INCOMPLETED
+        }
+    ]);
     const [taskFilter, setTaskFilter] = useState(taskStatusType.ALL);
 
     useEffect(() => {
         const localStorageTasks = getAllTasksFromLocalStorage();
-        if (!localStorageTasks?.length) {
-            setNewLocalStorageValue([
-                {
-                    id: '1',
-                    title: 'Task 1',
-                    status: taskStatusType.COMPLETED
-                },
-                {
-                    id: '2',
-                    title: 'Task 2',
-                    status: taskStatusType.CREATED
-                },
-                {
-                    id: '3',
-                    title: 'Task 3',
-                    status: taskStatusType.INCOMPLETED
-                }
-            ]);
-        } else {
+        if (localStorageTasks?.length) {
             setTasks(localStorageTasks);
         }
     }, []);
