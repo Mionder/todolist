@@ -12,7 +12,7 @@ import {
 import {
     ActionsWrapper,
     FilterBoxTitle,
-    FilterBoxWrapper,
+    FilterBoxWrapper, NavWrapper,
     ToDoListItemWrapper,
     ToDoWrapper
 } from './style';
@@ -138,7 +138,7 @@ const ToDo = () => {
             </FilterBoxWrapper>
 
             <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                <nav aria-label="main mailbox folders">
+                <NavWrapper aria-label="main mailbox folders">
                     <List>
                         <DndProvider backend={HTML5Backend}>
                             {tasks?.some(
@@ -161,7 +161,7 @@ const ToDo = () => {
                                             <Divider />
                                         </div>
                                     ) : (
-                                        <React.Fragment key={index} />
+                                        <React.Fragment />
                                     )
                                 )
                             ) : (
@@ -169,7 +169,7 @@ const ToDo = () => {
                             )}
                         </DndProvider>
                     </List>
-                </nav>
+                </NavWrapper>
             </Box>
             <ActionsWrapper>
                 <Button variant="contained" onClick={() => setIsOpenModal(true)}>

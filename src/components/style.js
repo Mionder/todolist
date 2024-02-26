@@ -123,6 +123,14 @@ const FilterBoxTitle = styled.h3`
   margin-bottom: 12px;
 `;
 
+const NavWrapper = styled.nav`
+  max-height: 350px;
+  overflow-y: scroll;
+  @media(max-width: 768px) {
+    max-height: 400px;
+  }
+`;
+
 export {
     PageWrapper,
     PageContainer,
@@ -135,5 +143,6 @@ export {
     ButtonWrapper,
     DeleteButtonWrapper,
     FilterBoxWrapper,
-    FilterBoxTitle
+    FilterBoxTitle,
+    NavWrapper
 }
